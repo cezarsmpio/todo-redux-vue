@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Estrutura de Dados - Lista Todo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <main id="app">
+    <form
+      class="todos-form"
+      v-on:submit="addTodo"
+    >
+      <input
+        name="text"
+        v-model="text"
+        type="text"
+        class="todos-form__input"
+      >
+      <button
+        type="submit"
+        class="todos-form__btn"
+      >
+        Adicionar
+      </button>
+    </form>
+
+    <ul class="todos">
+      <li
+        class="todos__todo"
+        v-for="todo in todos"
+        :class="{
+          'todos--completed': todo.completed
+        }"
+      >
+        <input
+          type="checkbox"
+          class="todos__check"
+          v-on:change="toggleTodo($index)"
+        >
+        <span
+          class="todos__text"
+        >
+          {{ todo.text }}
+        </span>
+        <a href="#" v-on:click="removeTodo($index)">x</a>
+      </li>
+    </ul>
+  </main>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.20/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.3.1/redux.min.js"></script>
+  <script src="js/actions.js"></script>
+  <script src="js/reducers.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
