@@ -1,5 +1,7 @@
 (function(window, document) {
-
+  
+  'use strict';
+  
   let initialState = {
     todos: []
   };
