@@ -1,5 +1,7 @@
 (function(window, document) {
 
+  'use strict';
+
   // let combineReducers = Redux.combineReducers;
   // let createStore = Redux.createStore;
 
